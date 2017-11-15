@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf8">
+<title>Calculator</title>
+</head>
+<body>
+<h1>Welcome to the Calculator!!!!</h1>
+<form action="/doTheMath" method="post">
+		<input required type="number" name="numberOne" > <select name="operator">
+			<option>+</option>
+			<option>- </option>
+			<option>*</option>
+			<option>/</option>
+			<option>log</option>
+		</select>
+
+<input  type="number" name="numberTwo" required>
+
+<button>Lets see it!</button>
+</form>
+
+<h1>{{final.doMath}}</h1>
+	
+
+</body>
+</html>

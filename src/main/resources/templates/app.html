@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/valet.css">
+
+<meta charset="utf8">
+<title>Valet Guys</title>
+</head>
+<body>
+<div id="masthead">
+            <div id="logo">
+                <a href="#">Vicious Valet</a>
+            </div>
+
+            <div id="navbar">
+
+                <ul id="nav-list">
+                    <li class="nav-link">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">About</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Stuff</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div id="content">
+            <div id="hero"></div>
+			
+            <div id="header-statement">
+                <h1>Welcome to Vicious Valet</h1>
+                <h2>Begin by adding a car</h2>
+            </div>
+
+
+	<form action="/" method="post">
+	
+		<table>
+		
+		<thead>
+		<tr>
+		<th>LiscensePlate</th>
+		<th>Make</th>
+		<th>Model</th>
+		<th>Color</th>
+		<th>VIN</th>
+		
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td><input type="text" name="license"></td>
+		<td><input type="text" name="make"></td>
+		<td><input type="text" name="model"></td>
+		<td><input type="text" name="color"></td>
+		<td><input type="text" name="vin"></td>
+		</tr>
+		</tbody>
+		</table>
+
+		<button type="submit">Submit New Car</button>
+	
+
+	</form>
+		{{#lot.isFull }}
+		<h2 id="lotfull"> The lot is full</h2>
+		{{/lot.isFull }}
+		<p> Cars in lot: {{ lot.size }}</p>
+	
+	<table>
+	<thead>
+		<tr>
+			<th>License</th>
+			<th>Make</th>
+			<th>Model</th>
+			<th>Color</th>
+			<th>VIN</th>
+			<td>Return Car?</td>
+		</tr>
+	</thead>
+	<tbody>
+		{{#lot.carList}}
+		<tr>
+			<td>{{ license }}</td>
+			<td>{{ make }}</td>
+			<td>{{ model }}</td>
+			<td>{{ color }}</td>
+			<td>{{ vin }}</td>
+			
+			<td>
+			<form method="post" action="/remove_car">
+			<input type="hidden" name="carIndex" value="{{ -index }}">
+			<button>Remove Car  </button>
+			</form>
+			</td>
+		</tr>
+		{{/lot.carList}}
+	</tbody>
+</table>
+
+
+</body>
+</html>
